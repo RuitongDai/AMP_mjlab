@@ -26,8 +26,7 @@ class RslRlAmpRunnerCfg(RslRlOnPolicyRunnerCfg):
   amp_task_reward_lerp: float = 0.75
   amp_discr_hidden_dims: List[int] = field(default_factory=lambda: [1024, 512, 256])
 
-  # 【核心防爆改动】min_normalized_std 用于设定策略网络输出动作的最小方差。
-  # G1 是 29 个自由度，而你的 X3 是 28 个自由度。如果不改这里，底层 C++ 或 PyTorch 运算时会直接报维度越界错误。
+  # min_normalized_std 用于设定策略网络输出动作的最小方差。
   min_normalized_std: List[float] = field(default_factory=lambda: [0.05] * 28)
   amp_body_names: tuple = ()
   amp_anchor_name: str = ""
@@ -76,7 +75,7 @@ def x3_amp_ppo_runner_cfg() -> RslRlAmpRunnerCfg:
     # AMP 参数配置
     amp_reward_coef=0.1,
     amp_motion_files=os.path.normpath(_MOTION_DATA_DIR),
-    amp_num_preload_transitions=200000, # 训练开始前，从你的 AMASS 转成的 NPZ 数据里预加载多少步
+    amp_num_preload_transitions=200000, # 训练开始前，从AMASS转成的NPZ数据里预加载多少步
     amp_task_reward_lerp=0.75,
     amp_discr_hidden_dims=[1024, 512, 256],
     min_normalized_std=[0.05] * 28,
