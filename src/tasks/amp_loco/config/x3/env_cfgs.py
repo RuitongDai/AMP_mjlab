@@ -177,8 +177,8 @@ def x3_amp_flat_env_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
   if play:
     twist_cmd = cfg.commands["twist"]
     assert isinstance(twist_cmd, UniformVelocityCommandCfg)
-    twist_cmd.ranges.lin_vel_x = (-1.5, 3.0)
-    twist_cmd.ranges.lin_vel_y = (-1.0, 1.0)
-    twist_cmd.ranges.ang_vel_z = (-3.14 / 2, 3.14 / 2)
+    twist_cmd.ranges.lin_vel_x = (-1.5, 1.5)
+    twist_cmd.ranges.lin_vel_y = (0.0, 0.0)
+    twist_cmd.ranges.ang_vel_z = (0.0, 0.0)
 
   return cfg
