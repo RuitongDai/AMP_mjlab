@@ -1,0 +1,44 @@
+{
+  "os": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.11.15",
+  "startedAt": "2026-06-15T07:11:26.413450Z",
+  "args": [
+    "X3-AMP-Flat",
+    "--env.scene.num-envs=4096"
+  ],
+  "program": "/home/dai/github/AMP_mjlab/scripts/train.py",
+  "codePath": "scripts/train.py",
+  "codePathLocal": "scripts/train.py",
+  "git": {
+    "remote": "git@github.com:RuitongDai/AMP_mjlab.git",
+    "commit": "4b00c3ecafcc50ddca678f0d0eeee9cdb1d5bec2"
+  },
+  "email": "3192529076@qq.com",
+  "root": "/home/dai/github/AMP_mjlab",
+  "host": "dai",
+  "executable": "/home/dai/miniconda3/envs/amp_mjlab/bin/python",
+  "cpu_count": 10,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA GeForce RTX 4060",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "368766496768",
+      "used": "238721077248"
+    }
+  },
+  "memory": {
+    "total": "16569856000"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4060",
+      "memoryTotal": "8585740288",
+      "cudaCores": 3072,
+      "architecture": "Ada",
+      "uuid": "GPU-e7189c54-0144-9c77-4c23-cdc156030404"
+    }
+  ],
+  "cudaVersion": "13.2",
+  "writerId": "q7k3nsh0r2lo729fqbx73uuh0hzor64r"
+}

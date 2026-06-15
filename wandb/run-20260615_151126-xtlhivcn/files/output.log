@@ -1,0 +1,307 @@
+Module mujoco_warp._src.derivative 7009ffc load on device 'cuda:0' took 0.81 ms  (cached)
+/home/dai/miniconda3/envs/amp_mjlab/lib/python3.11/site-packages/torch/autograd/graph.py:882: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:370.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+################################################################################
+                     [1m Learning iteration 0/100001 [0m
+
+                       Computation: 11252 steps/s (collection: 6.059s, learning 2.677s)
+             Mean action noise std: 1.00
+          Mean value_function loss: 0.1005
+               Mean surrogate loss: 0.0371
+                 Mean entropy loss: 39.6939
+                     Mean amp loss: 0.4671
+            Mean amp_grad_pen loss: 0.0595
+         Mean amp_policy_pred loss: -0.7481
+         Mean amp_expert_pred loss: 0.1391
+Mean skipped_non_finite_batches loss: 0.0000
+                       Mean reward: 0.28
+               Mean episode length: 13.69
+Episode_Reward/track_anchor_linear_velocity: 0.0053
+Episode_Reward/track_anchor_angular_velocity: 0.0086
+  Episode_Reward/track_root_height: 0.0015
+ Episode_Reward/body_ang_vel_xy_l2: 0.0044
+      Episode_Reward/is_terminated: 0.0000
+       Episode_Reward/joint_acc_l2: -0.0057
+   Episode_Reward/joint_pos_limits: -0.0048
+     Episode_Reward/action_rate_l2: -0.0067
+          Episode_Reward/foot_slip: -0.0015
+    Episode_Reward/self_collisions: -0.0001
+   Episode_Metrics/mean_action_acc: 1.7565
+  Episode_Metrics/mean_delay_steps: 0.0010
+        Metrics/twist/error_vel_xy: 0.0279
+       Metrics/twist/error_vel_yaw: 0.0652
+      Episode_Termination/time_out: 4.3750
+Episode_Termination/bad_orientation: 0.0000
+Episode_Termination/bad_base_height: 0.0000
+        Metrics/slip_velocity_mean: 0.5499
+--------------------------------------------------------------------------------
+                   Total timesteps: 98304
+                    Iteration time: 8.74s
+                      Time elapsed: 00:00:08
+                               ETA: 02:40:20
+[34m[1mwandb[0m: [33mWARNING[0m Symlinked 1 file into the W&B run directory; call wandb.save again to sync new files.
+/home/dai/github/AMP_mjlab/src/tasks/amp_loco/rl/runner.py:87: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+  torch.onnx.export(
+
+[torch.onnx] Obtain model graph for `_OnnxPolicyWrapper([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `_OnnxPolicyWrapper([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+/home/dai/miniconda3/envs/amp_mjlab/lib/python3.11/copyreg.py:105: FutureWarning: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+  return cls.__new__(cls, *args)
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+[34m[1mwandb[0m: [33mWARNING[0m Symlinked 1 file into the W&B run directory; call wandb.save again to sync new files.
+Storing git diff for 'AMP_mjlab' in: logs/rsl_rl/x3_amp_locomotion/2026-06-15_15-11-18/git/AMP_mjlab.diff
+[34m[1mwandb[0m: [33mWARNING[0m Symlinked 1 file into the W&B run directory; call wandb.save again to sync new files.
+################################################################################
+                     [1m Learning iteration 1/100001 [0m
+
+                       Computation: 12090 steps/s (collection: 5.609s, learning 2.521s)
+             Mean action noise std: 1.00
+          Mean value_function loss: 0.5935
+               Mean surrogate loss: -0.0077
+                 Mean entropy loss: 39.6933
+                     Mean amp loss: 0.1879
+            Mean amp_grad_pen loss: 0.1448
+         Mean amp_policy_pred loss: -0.8517
+         Mean amp_expert_pred loss: 0.4722
+Mean skipped_non_finite_batches loss: 0.0000
+                       Mean reward: -2.49
+               Mean episode length: 48.00
+Episode_Reward/track_anchor_linear_velocity: 0.0126
+Episode_Reward/track_anchor_angular_velocity: 0.0223
+  Episode_Reward/track_root_height: 0.0005
+ Episode_Reward/body_ang_vel_xy_l2: 0.0117
+      Episode_Reward/is_terminated: -0.1271
+       Episode_Reward/joint_acc_l2: -0.0167
+   Episode_Reward/joint_pos_limits: -0.0129
+     Episode_Reward/action_rate_l2: -0.0202
+          Episode_Reward/foot_slip: -0.0048
+    Episode_Reward/self_collisions: -0.0005
+   Episode_Metrics/mean_action_acc: 1.9172
+  Episode_Metrics/mean_delay_steps: 0.0319
+        Metrics/twist/error_vel_xy: 0.0968
+       Metrics/twist/error_vel_yaw: 0.2084
+      Episode_Termination/time_out: 3.8750
+Episode_Termination/bad_orientation: 0.9167
+Episode_Termination/bad_base_height: 31.3750
+        Metrics/slip_velocity_mean: 0.5917
+--------------------------------------------------------------------------------
+                   Total timesteps: 196608
+                    Iteration time: 8.13s
+                      Time elapsed: 00:00:16
+                               ETA: 18:15:41
+
+################################################################################
+                     [1m Learning iteration 2/100001 [0m
+
+                       Computation: 12302 steps/s (collection: 5.474s, learning 2.517s)
+             Mean action noise std: 1.00
+          Mean value_function loss: 0.6795
+               Mean surrogate loss: -0.0130
+                 Mean entropy loss: 39.7418
+                     Mean amp loss: 0.1018
+            Mean amp_grad_pen loss: 0.1428
+         Mean amp_policy_pred loss: -0.8506
+         Mean amp_expert_pred loss: 0.6556
+Mean skipped_non_finite_batches loss: 0.0000
+                       Mean reward: -2.22
+               Mean episode length: 68.29
+Episode_Reward/track_anchor_linear_velocity: 0.0206
+Episode_Reward/track_anchor_angular_velocity: 0.0371
+  Episode_Reward/track_root_height: 0.0001
+ Episode_Reward/body_ang_vel_xy_l2: 0.0196
+      Episode_Reward/is_terminated: -0.1903
+       Episode_Reward/joint_acc_l2: -0.0260
+   Episode_Reward/joint_pos_limits: -0.0188
+     Episode_Reward/action_rate_l2: -0.0333
+          Episode_Reward/foot_slip: -0.0073
+    Episode_Reward/self_collisions: -0.0009
+   Episode_Metrics/mean_action_acc: 1.9327
+  Episode_Metrics/mean_delay_steps: 1.3295
+        Metrics/twist/error_vel_xy: 0.1637
+       Metrics/twist/error_vel_yaw: 0.3415
+      Episode_Termination/time_out: 2.7917
+Episode_Termination/bad_orientation: 2.8333
+Episode_Termination/bad_base_height: 58.9583
+        Metrics/slip_velocity_mean: 0.5932
+--------------------------------------------------------------------------------
+                   Total timesteps: 294912
+                    Iteration time: 7.99s
+                      Time elapsed: 00:00:24
+                               ETA: 14:09:22
+
+################################################################################
+                     [1m Learning iteration 3/100001 [0m
+
+                       Computation: 12862 steps/s (collection: 5.484s, learning 2.159s)
+             Mean action noise std: 1.00
+          Mean value_function loss: 0.4424
+               Mean surrogate loss: -0.0149
+                 Mean entropy loss: 39.7860
+                     Mean amp loss: 0.0756
+            Mean amp_grad_pen loss: 0.1113
+         Mean amp_policy_pred loss: -0.8854
+         Mean amp_expert_pred loss: 0.7206
+Mean skipped_non_finite_batches loss: 0.0000
+                       Mean reward: -2.86
+               Mean episode length: 50.41
+Episode_Reward/track_anchor_linear_velocity: 0.0185
+Episode_Reward/track_anchor_angular_velocity: 0.0337
+  Episode_Reward/track_root_height: 0.0002
+ Episode_Reward/body_ang_vel_xy_l2: 0.0181
+      Episode_Reward/is_terminated: -0.1874
+       Episode_Reward/joint_acc_l2: -0.0250
+   Episode_Reward/joint_pos_limits: -0.0174
+     Episode_Reward/action_rate_l2: -0.0318
+          Episode_Reward/foot_slip: -0.0072
+    Episode_Reward/self_collisions: -0.0009
+   Episode_Metrics/mean_action_acc: 1.9361
+  Episode_Metrics/mean_delay_steps: 10.2454
+        Metrics/twist/error_vel_xy: 0.1600
+       Metrics/twist/error_vel_yaw: 0.3308
+      Episode_Termination/time_out: 1.9583
+Episode_Termination/bad_orientation: 2.8750
+Episode_Termination/bad_base_height: 35.7083
+        Metrics/slip_velocity_mean: 0.5962
+--------------------------------------------------------------------------------
+                   Total timesteps: 393216
+                    Iteration time: 7.64s
+                      Time elapsed: 00:00:32
+                               ETA: 09:41:23
+
+################################################################################
+                     [1m Learning iteration 4/100001 [0m
+
+                       Computation: 13648 steps/s (collection: 5.065s, learning 2.138s)
+             Mean action noise std: 1.00
+          Mean value_function loss: 0.5031
+               Mean surrogate loss: -0.0129
+                 Mean entropy loss: 39.8331
+                     Mean amp loss: 0.0517
+            Mean amp_grad_pen loss: 0.0839
+         Mean amp_policy_pred loss: -0.9138
+         Mean amp_expert_pred loss: 0.7894
+Mean skipped_non_finite_batches loss: 0.0000
+                       Mean reward: -2.82
+               Mean episode length: 58.53
+Episode_Reward/track_anchor_linear_velocity: 0.0176
+Episode_Reward/track_anchor_angular_velocity: 0.0333
+  Episode_Reward/track_root_height: 0.0001
+ Episode_Reward/body_ang_vel_xy_l2: 0.0178
+      Episode_Reward/is_terminated: -0.1943
+       Episode_Reward/joint_acc_l2: -0.0243
+   Episode_Reward/joint_pos_limits: -0.0166
+     Episode_Reward/action_rate_l2: -0.0312
+          Episode_Reward/foot_slip: -0.0068
+    Episode_Reward/self_collisions: -0.0010
+   Episode_Metrics/mean_action_acc: 1.9371
+  Episode_Metrics/mean_delay_steps: 25.7178
+        Metrics/twist/error_vel_xy: 0.1589
+       Metrics/twist/error_vel_yaw: 0.3210
+      Episode_Termination/time_out: 1.5417
+Episode_Termination/bad_orientation: 3.3750
+Episode_Termination/bad_base_height: 53.1667
+        Metrics/slip_velocity_mean: 0.5820
+--------------------------------------------------------------------------------
+                   Total timesteps: 491520
+                    Iteration time: 7.20s
+                      Time elapsed: 00:00:39
+                               ETA: 04:33:49
+
+################################################################################
+                     [1m Learning iteration 5/100001 [0m
+
+                       Computation: 13650 steps/s (collection: 5.065s, learning 2.137s)
+             Mean action noise std: 1.01
+          Mean value_function loss: 0.3479
+               Mean surrogate loss: -0.0140
+                 Mean entropy loss: 39.8815
+                     Mean amp loss: 0.0396
+            Mean amp_grad_pen loss: 0.0725
+         Mean amp_policy_pred loss: -0.9217
+         Mean amp_expert_pred loss: 0.8352
+Mean skipped_non_finite_batches loss: 0.0000
+                       Mean reward: -2.89
+               Mean episode length: 57.16
+Episode_Reward/track_anchor_linear_velocity: 0.0194
+Episode_Reward/track_anchor_angular_velocity: 0.0346
+  Episode_Reward/track_root_height: 0.0002
+ Episode_Reward/body_ang_vel_xy_l2: 0.0184
+      Episode_Reward/is_terminated: -0.1916
+       Episode_Reward/joint_acc_l2: -0.0259
+   Episode_Reward/joint_pos_limits: -0.0178
+     Episode_Reward/action_rate_l2: -0.0332
+          Episode_Reward/foot_slip: -0.0071
+    Episode_Reward/self_collisions: -0.0011
+   Episode_Metrics/mean_action_acc: 1.9414
+  Episode_Metrics/mean_delay_steps: 44.9726
+        Metrics/twist/error_vel_xy: 0.1620
+       Metrics/twist/error_vel_yaw: 0.3384
+      Episode_Termination/time_out: 1.7083
+Episode_Termination/bad_orientation: 3.4583
+Episode_Termination/bad_base_height: 41.8333
+        Metrics/slip_velocity_mean: 0.5878
+--------------------------------------------------------------------------------
+                   Total timesteps: 589824
+                    Iteration time: 7.20s
+                      Time elapsed: 00:00:46
+                               ETA: 01:08:27
+
+################################################################################
+                     [1m Learning iteration 6/100001 [0m
+
+                       Computation: 13655 steps/s (collection: 5.068s, learning 2.131s)
+             Mean action noise std: 1.01
+          Mean value_function loss: 0.3256
+               Mean surrogate loss: -0.0149
+                 Mean entropy loss: 39.9162
+                     Mean amp loss: 0.0277
+            Mean amp_grad_pen loss: 0.0621
+         Mean amp_policy_pred loss: -0.9293
+         Mean amp_expert_pred loss: 0.8770
+Mean skipped_non_finite_batches loss: 0.0000
+                       Mean reward: -2.95
+               Mean episode length: 56.48
+Episode_Reward/track_anchor_linear_velocity: 0.0178
+Episode_Reward/track_anchor_angular_velocity: 0.0330
+  Episode_Reward/track_root_height: 0.0001
+ Episode_Reward/body_ang_vel_xy_l2: 0.0176
+      Episode_Reward/is_terminated: -0.1952
+       Episode_Reward/joint_acc_l2: -0.0247
+   Episode_Reward/joint_pos_limits: -0.0164
+     Episode_Reward/action_rate_l2: -0.0318
+          Episode_Reward/foot_slip: -0.0067
+    Episode_Reward/self_collisions: -0.0010
+   Episode_Metrics/mean_action_acc: 1.9447
+  Episode_Metrics/mean_delay_steps: 66.9314
+        Metrics/twist/error_vel_xy: 0.1585
+       Metrics/twist/error_vel_yaw: 0.3250
+      Episode_Termination/time_out: 1.1667
+Episode_Termination/bad_orientation: 2.7083
+Episode_Termination/bad_base_height: 47.9583
+        Metrics/slip_velocity_mean: 0.5841
+--------------------------------------------------------------------------------
+                   Total timesteps: 688128
+                    Iteration time: 7.20s
+                      Time elapsed: 00:00:54
+                               ETA: 22:41:06
+Traceback (most recent call last):
+  File "/home/dai/github/AMP_mjlab/scripts/train.py", line 222, in <module>
+    main()
+  File "/home/dai/github/AMP_mjlab/scripts/train.py", line 218, in main
+    launch_training(task_id=chosen_task, args=args)
+  File "/home/dai/github/AMP_mjlab/scripts/train.py", line 168, in launch_training
+    run_train(task_id, args, log_dir)
+  File "/home/dai/github/AMP_mjlab/scripts/train.py", line 138, in run_train
+    runner.learn(
+  File "/home/dai/github/AMP_mjlab/rsl_rl/runners/amp_on_policy_runner.py", line 399, in learn
+    loss_dict = self.alg.update()
+                ^^^^^^^^^^^^^^^^^
+  File "/home/dai/github/AMP_mjlab/rsl_rl/algorithms/amp_ppo.py", line 498, in update
+    self.amp_normalizer.update(policy_state.cpu().numpy())
+                               ^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
