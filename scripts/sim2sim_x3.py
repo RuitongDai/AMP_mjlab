@@ -3,6 +3,7 @@ import numpy as np
 import onnxruntime
 import mujoco
 import mujoco_viewer
+from pynput import keyboard
 
 # 保证 28 自由度顺序与 XML 和 ONNX 输出严格一致
 mujoco_joint_index = [
@@ -60,6 +61,69 @@ def get_projected_gravity(quat):
     return proj_g
 
 
+class KeyboardController:
+    def __init__(self):
+        self.keys = {'up': False, 'down': False, 'left': False, 'right': False, 'z': False, 'x': False}
+        self.listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
+        self.listener.start()
+
+    def on_press(self, key):
+        try:
+            if key.char in self.keys:
+                self.keys[key.char] = True
+        except AttributeError:
+            if hasattr(key, 'name'):
+                if key.name == 'up':
+                    self.keys['up'] = True
+                elif key.name == 'down':
+                    self.keys['down'] = True
+                elif key.name == 'left':
+                    self.keys['left'] = True
+                elif key.name == 'right':
+                    self.keys['right'] = True
+
+    def on_release(self, key):
+        try:
+            if key.char in self.keys:
+                self.keys[key.char] = False
+        except AttributeError:
+            if hasattr(key, 'name'):
+                if key.name == 'up':
+                    self.keys['up'] = False
+                elif key.name == 'down':
+                    self.keys['down'] = False
+                elif key.name == 'left':
+                    self.keys['left'] = False
+                elif key.name == 'right':
+                    self.keys['right'] = False
+
+    def get_command(self):
+        """返回 [X线速度, Y线速度, Z角速度]
+        控制方式:
+        - 上/下: 前进/后退
+        - 左/右: 左/右平移
+        - Z/X: 逆时针/顺时针转向
+        """
+        vx = 0.0
+        vy = 0.0
+        wz = 0.0
+
+        if self.keys['up']:
+            vx += 1.0
+        if self.keys['down']:
+            vx -= 1.0
+        if self.keys['right']:
+            vy -= 1.8
+        if self.keys['left']:
+            vy += 1.8
+        if self.keys['z']:
+            wz += 1.8
+        if self.keys['x']:
+            wz -= 1.8
+
+        return np.array([vx, vy, wz], dtype=np.float32)
+
+
 class Sim2Sim():
     def __init__(self, xml_path, policy_path):
         self.xml_path = xml_path
@@ -80,7 +144,10 @@ class Sim2Sim():
         self.obs_history = np.zeros(372, dtype=np.float32)
 
         # 速度指令：[X线速度, Y线速度, Z角速度]
-        self.command = np.array([-1.0, 0.0, 0.0], dtype=np.float32)
+        self.command = np.array([0.0, 0.0, 0.0], dtype=np.float32)
+
+        # 键盘控制器
+        self.kb_controller = KeyboardController()
 
     def run(self):
         # 1. 加载 ONNX 模型
@@ -109,6 +176,9 @@ class Sim2Sim():
         # 4. 控制主循环
         while viewer.is_alive:
             step_start = time.time()
+
+            # 更新键盘输入的速度命令
+            self.command = self.kb_controller.get_command()
 
             # ==================================================
             # 【策略网络层】频率: 50Hz (每 4 个物理步执行一次)
@@ -173,7 +243,7 @@ class Sim2Sim():
 
 if __name__ == '__main__':
     XML_PATH = "/home/dai/github/AMP_mjlab/src/assets/robots/moya/xmls/Moya01_V2.xml"
-    POLICY_PATH = "/home/dai/x3_amp_locomotion/2026-06-13_10-55-45/policy.onnx"
+    POLICY_PATH = "/home/dai/x3_amp_locomotion/policy.onnx"
 
     bot = Sim2Sim(XML_PATH, POLICY_PATH)
     bot.run()
